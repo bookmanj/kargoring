@@ -20,11 +20,11 @@ spec:
     spec:
       project: kargo-demo
       source:
-        repoURL: https://github.com/blakepettersson/kargoring.git
+        repoURL: https://github.com/bookmanj/kargoring.git
         targetRevision: stage/{{stage}}
         path: guestbook/stages/{{stage}}
       destination:
-        name: blake
+        name: platform-dev
         namespace: guestbook-{{stage}}
       syncPolicy:
         syncOptions:

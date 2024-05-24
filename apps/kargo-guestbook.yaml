@@ -5,10 +5,10 @@ metadata:
 spec:
   project: kargo-demo
   source:
-    repoURL: https://github.com/blakepettersson/kargoring.git
+    repoURL: https://github.com/bookmanj/kargoring.git
     path: kargo
   destination:
-    name: kargo1
+    name: akuity-kargo-poc
     #server: https://f77el9953au135eb-cplane.kargosvcs.akuity.cloud
   syncPolicy:
     syncOptions:

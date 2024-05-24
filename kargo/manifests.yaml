@@ -27,7 +27,7 @@ metadata:
 spec:
   subscriptions:
   - git:
-      repoURL: https://github.com/blakepettersson/kargoring.git
+      repoURL: https://github.com/bookmanj/kargoring.git
       branch: main
   - image:
       repoURL: ghcr.io/dhpup/guestbook
@@ -45,7 +45,7 @@ spec:
     warehouse: guestbook
   promotionMechanisms:
     gitRepoUpdates:
-    - repoURL: https://github.com/blakepettersson/kargoring.git
+    - repoURL: https://github.com/bookmanj/kargoring.git
       writeBranch: stage/dev
       kustomize:
         images:
@@ -69,7 +69,7 @@ spec:
     - name: dev
   promotionMechanisms:
     gitRepoUpdates:
-    - repoURL: https://github.com/blakepettersson/kargoring.git
+    - repoURL: https://github.com/bookmanj/kargoring.git
       writeBranch: stage/test
       kustomize:
         images:
@@ -96,7 +96,7 @@ spec:
     - name: test
   promotionMechanisms:
     gitRepoUpdates:
-    - repoURL: https://github.com/blakepettersson/kargoring.git
+    - repoURL: https://github.com/bookmanj/kargoring.git
       writeBranch: stage/preview
       kustomize:
         images:
@@ -120,7 +120,7 @@ spec:
     - name: preview
   promotionMechanisms:
     gitRepoUpdates:
-    - repoURL: https://github.com/blakepettersson/kargoring.git
+    - repoURL: https://github.com/bookmanj/kargoring.git
       writeBranch: stage/prod-euwest
       kustomize:
         images:
@@ -144,7 +144,7 @@ spec:
     - name: preview
   promotionMechanisms:
     gitRepoUpdates:
-    - repoURL: https://github.com/blakepettersson/kargoring.git
+    - repoURL: https://github.com/bookmanj/kargoring.git
       writeBranch: stage/prod-uswest
       kustomize:
         images:
