@@ -4,7 +4,7 @@ metadata:
   name: guestbook
 spec:
   replicas: 1
-  progressDeadlineSeconds: 80
+  progressDeadlineSeconds: 70
   revisionHistoryLimit: 3
   selector:
     matchLabels:
