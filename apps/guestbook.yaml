@@ -32,5 +32,6 @@ spec:
         name: "{{dest}}"
         namespace: guestbook-{{stage}}
       syncPolicy:
+        automated: {}
         syncOptions:
         - CreateNamespace=true
