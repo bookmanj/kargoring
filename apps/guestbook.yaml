@@ -8,10 +8,15 @@ spec:
   - list:
       elements:
       - stage: dev
+        dest: platform-dev
       - stage: test
+        dest: platform-test
       - stage: preview
+        dest: platform-preview
       - stage: prod-euwest
+        dest: platform-prod
       - stage: prod-uswest
+        dest: platformus-prod
   template:
     metadata:
       name: guestbook-{{stage}}
@@ -24,7 +29,7 @@ spec:
         targetRevision: stage/{{stage}}
         path: guestbook/stages/{{stage}}
       destination:
-        name: platform-dev
+        name: "{{dest}}"
         namespace: guestbook-{{stage}}
       syncPolicy:
         syncOptions:
