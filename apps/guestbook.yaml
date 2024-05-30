@@ -4,33 +4,33 @@ metadata:
   name: guestbook
   namespace: argocd
 spec:
+  goTemplate: true
   generators:
-  - list:
-      elements:
-      - stage: dev
-        dest: platform-dev
-      - stage: test
-        dest: platform-test
-      - stage: preview
-        dest: platform-preview
-      - stage: prod-euwest
-        dest: platform-prod
-      - stage: prod-uswest
-        dest: platformus-prod
+    - clusters:
+        selector:
+          matchExpressions:
+            - {key: 'akuity.io/argo-cd-cluster-name', operator: NotIn, values: [in-cluster]}
+          matchLabels:
+            stamp: platform
+        values:
+          gitver: '{{ index .metadata.labels "gitver" }}'
+          stamp: '{{ index .metadata.labels "stamp" }}'
+          ring: '{{ index .metadata.labels "ring" }}'
+          region: '{{ index .metadata.labels "region" }}'
   template:
     metadata:
-      name: guestbook-{{stage}}
+      name: guestbook-{{ .values.ring }}
       annotations:
-        kargo.akuity.io/authorized-stage: guestbook:{{stage}}
+        kargo.akuity.io/authorized-stage: guestbook:{{ .values.ring }}
     spec:
       project: kargo-demo
       source:
         repoURL: https://github.com/bookmanj/kargoring.git
-        targetRevision: stage/{{stage}}
-        path: guestbook/stages/{{stage}}
+        targetRevision: stage/{{ .values.ring }}
+        path: guestbook/stages/{{ .values.ring }}
       destination:
-        name: "{{dest}}"
-        namespace: guestbook-{{stage}}
+        name: '{{ .name }}'
+        namespace: guestbook-{{ .values.ring }}
       syncPolicy:
         automated: {}
         syncOptions:
